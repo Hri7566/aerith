@@ -17,6 +17,7 @@ var exitKey int32 = rl.KeyNull
 
 func main() {
 	menu.Init()
+	renderer.Init()
 
 	// Setup window
 	rl.InitWindow(screen.Width, screen.Height, screen.GetTitle())
@@ -30,6 +31,9 @@ func main() {
 	var dt float32
 
 	for !rl.WindowShouldClose() {
+		if screen.ShouldClose {
+			break
+		}
 		// Call updates
 
 		dt = rl.GetFrameTime()
