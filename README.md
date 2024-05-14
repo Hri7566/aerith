@@ -1,3 +1,0 @@
-# aerith
-
-come back later
