@@ -6,6 +6,9 @@ import (
 	"aerith/screen"
 
 	rl "github.com/gen2brain/raylib-go/raylib"
+
+	"gitlab.com/gomidi/midi/v2"
+	_ "gitlab.com/gomidi/midi/v2/drivers/rtmididrv" // autoregisters driver
 )
 
 // Module declarations
@@ -16,6 +19,8 @@ var showFPS bool = false
 var exitKey int32 = rl.KeyNull
 
 func main() {
+	defer midi.CloseDriver()
+
 	menu.Init()
 	renderer.Init()
 

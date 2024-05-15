@@ -2,6 +2,7 @@ package menu
 
 import (
 	"aerith/renderer"
+	"aerith/rmidi"
 	"aerith/screen"
 
 	rg "github.com/gen2brain/raylib-go/raygui"
@@ -47,6 +48,22 @@ func Init() {
 			} else {
 				b.Text = "Enable FPS"
 			}
+		},
+	})
+
+	buttons = append(buttons, IButton{
+		Rectangle: rl.NewRectangle(24, 30+24+24, 120, 30),
+		Text:      "Load MIDI",
+		Callback: func(b *IButton) {
+			rmidi.LoadMIDI("test.mid")
+		},
+	})
+
+	buttons = append(buttons, IButton{
+		Rectangle: rl.NewRectangle(24, 30+30+24+24, 120, 30),
+		Text:      "Unload MIDI",
+		Callback: func(b *IButton) {
+			rmidi.UnloadMIDI()
 		},
 	})
 }
