@@ -8,6 +8,7 @@ import (
 
 var showFPS bool = false
 var EnableFPS bool = false
+var BackgroundColor rl.Color = rl.DarkGray
 
 func Init() {
 	showFPS = EnableFPS
@@ -24,7 +25,7 @@ func Update(dt float32) {
 }
 
 func Draw() {
-	rl.ClearBackground(rl.Black)
+	rl.ClearBackground(BackgroundColor)
 
 	var whiteIndex int32 = 0
 	var blackIndex int32 = 0
