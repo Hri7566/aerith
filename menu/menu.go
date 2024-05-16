@@ -4,6 +4,7 @@ import (
 	"aerith/renderer"
 	"aerith/rmidi"
 	"aerith/screen"
+	"fmt"
 
 	rg "github.com/gen2brain/raylib-go/raygui"
 	rl "github.com/gen2brain/raylib-go/raylib"
@@ -55,7 +56,12 @@ func Init() {
 		Rectangle: rl.NewRectangle(24, 30+24+24, 120, 30),
 		Text:      "Load MIDI",
 		Callback: func(b *IButton) {
-			rmidi.LoadMIDI("test.mid")
+			// Load MIDI file
+			// TODO Open file dialog
+
+			file := "test.mid"
+			rmidi.LoadMIDI("file")
+			fmt.Println("Loaded " + file)
 		},
 	})
 
@@ -63,7 +69,9 @@ func Init() {
 		Rectangle: rl.NewRectangle(24, 30+30+24+24, 120, 30),
 		Text:      "Unload MIDI",
 		Callback: func(b *IButton) {
+			// Unload MIDI file
 			rmidi.UnloadMIDI()
+			fmt.Println("Unloaded MIDI")
 		},
 	})
 }
@@ -76,6 +84,8 @@ func Draw() {
 	style := uint(rg.GetStyle(rg.DEFAULT, rg.BACKGROUND_COLOR))
 	bgColor := rl.GetColor(style)
 	rl.ClearBackground(bgColor)
+
+	// Draw every menu button
 
 	for i := range buttons {
 		button := &buttons[i]
