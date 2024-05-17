@@ -22,7 +22,7 @@ jobs:
         go-version: '1.22.2'
 
     - name: Install packages
-      run: sudo apt-get install libasound2-dev libx11-dev libwayland-client0
+      run: sudo apt-get install libasound2-dev libx11-dev libgl1-mesa-dev libxi-dev libxcursor-dev libxrandr-dev libxinerama-dev libwayland-dev libxkbcommon-dev
 
     - name: Build
       run: go build -v ./...
