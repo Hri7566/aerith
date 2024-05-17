@@ -22,7 +22,7 @@ jobs:
         go-version: '1.22.2'
 
     - name: Install packages
-      run: sudo apt-get install libasound2 libwayland-bin
+      run: sudo apt-get install libasound2-dev libwayland-dev
 
     - name: Build
       run: go build -v ./...
