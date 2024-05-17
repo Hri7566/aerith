@@ -1,5 +1,7 @@
 # aerith
 
+[![Build](https://github.com/Hri7566/aerith/actions/workflows/go.yml/badge.svg)](https://github.com/Hri7566/aerith)
+
 (WIP)
 
 Aerith is a black MIDI renderer capable of (TODO).
