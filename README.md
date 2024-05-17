@@ -12,3 +12,8 @@ Aerith is a black MIDI renderer capable of (TODO).
 - [ ] MIDI rendering
 - [ ] Real-time video recording
 - [ ] Fully rendered video recording
+
+## Development notes
+
+- Note parsing is beyond me
+- The goidi library's built-in SMF player is poorly optimized

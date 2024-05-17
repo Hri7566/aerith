@@ -2,16 +2,20 @@ package rmidi
 
 import "gitlab.com/gomidi/midi/v2/smf"
 
-var MIDIEvents []smf.TrackEvent
+var Data *smf.SMF
 
-func LoadMIDI(path string) {
-	smf.ReadTracks(path).Do(
-		func(te smf.TrackEvent) {
-			MIDIEvents = append(MIDIEvents, te)
-		},
-	)
+func LoadMIDI(path string) (err error) {
+	mf, err := smf.ReadFile(path)
+
+	if err != nil {
+		return err
+	}
+
+	Data = mf
+
+	return nil
 }
 
 func UnloadMIDI() {
-	MIDIEvents = []smf.TrackEvent{}
+	Data = nil
 }

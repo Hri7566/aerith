@@ -1,7 +1,9 @@
 package renderer
 
 import (
+	"aerith/rmidi"
 	"aerith/screen"
+	"fmt"
 
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
@@ -9,6 +11,12 @@ import (
 var showFPS bool = false
 var EnableFPS bool = false
 var BackgroundColor rl.Color = rl.DarkGray
+
+type Note struct {
+	Key    string
+	Time   float32
+	Length float32
+}
 
 func Init() {
 	showFPS = EnableFPS
@@ -27,6 +35,13 @@ func Update(dt float32) {
 func Draw() {
 	rl.ClearBackground(BackgroundColor)
 
+	// Draw notes
+	// TODO
+	for _, tr := range rmidi.Data.Tracks {
+		fmt.Printf("%v\n", tr)
+	}
+
+	// Draw keys
 	var whiteIndex int32 = 0
 	var blackIndex int32 = 0
 
@@ -39,7 +54,6 @@ func Draw() {
 	blackKeyWidth := keyWidth * .75
 	blackKeyHeight := (keyHeight / 12) * 8
 
-	// Draw keys
 	for _, key := range keys {
 		if !key.Sharp {
 			x = keyWidth * float32(whiteIndex)
